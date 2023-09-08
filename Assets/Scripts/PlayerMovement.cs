@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private int JUMP_HEIGHT = 1000;
     [SerializeField] private int FORWARD_FORCE = 10000;
-    private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
     public int TagDetect;
     private Touch playerTouch;
@@ -13,11 +13,7 @@ public class PlayerMovement : MonoBehaviour
     {
         TouchMovement();
     }
-    private void OnValidate()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
+
     private void TouchMovement()
     {
         if (Input.touchCount > 0)
@@ -44,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
                 }
             }
+            TagDetect = 0;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.velocity = Vector2.zero;
         if (collision.gameObject.tag == "Tree")
         {
             TagDetect = 1;
@@ -60,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        TagDetect = 0;
+       // TagDetect = 0;
     }
 
 }
