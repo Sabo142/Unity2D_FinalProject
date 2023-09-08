@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 947149289}
   - component: {fileID: 947149288}
   - component: {fileID: 947149287}
-  - component: {fileID: 947149293}
+  - component: {fileID: 947149292}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -408,7 +408,7 @@ MonoBehaviour:
   FORWARD_FORCE: 300
   spriteRenderer: {fileID: 1787998510}
   TagDetect: 0
-  animator: {fileID: 947149293}
+  animator: {fileID: 0}
 --- !u!70 &947149289
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ Transform:
   - {fileID: 1787998509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &947149293
+--- !u!95 &947149292
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

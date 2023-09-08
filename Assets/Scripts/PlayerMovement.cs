@@ -27,20 +27,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (TagDetect == 1)
                 {
-                    if (animator != null)
-                    {
-                        animator.Play("Base Layer.PlayerMovementAnimation");
-                    }
+                   
+                        animator.Play("Rest");
+                    
                     spriteRenderer.flipX = true;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.right * FORWARD_FORCE);
                 }
                 else if (TagDetect == 2)
                 {
-                    if (animator != null)
-                    {
-                        animator.Play("Base Layer.PlayerMovementAnimation");
-                    }
+                    
+                        animator.Play("Rest");
+                    
                     spriteRenderer.flipX = false;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
