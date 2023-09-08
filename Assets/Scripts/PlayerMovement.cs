@@ -4,17 +4,19 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private int JUMP_HEIGHT = 1000;
     [SerializeField] private int FORWARD_FORCE = 10000;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
     public int TagDetect;
     private Touch playerTouch;
+    public Animator animator;
     void Update()
     {
         TouchMovement();
     }
     private void OnValidate()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void TouchMovement()
     {
@@ -25,38 +27,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (TagDetect == 1)
                 {
+                    if (animator != null)
+                    {
+                        animator.Play("Base Layer.PlayerMovementAnimation");
+                    }
                     spriteRenderer.flipX = true;
-                    rigidbody.AddForce(Vector2.up * JUMP_HEIGHT * Time.deltaTime);
-                    rigidbody.AddForce(Vector2.right * FORWARD_FORCE * Time.deltaTime);
+                    rb.AddForce(Vector2.up * JUMP_HEIGHT);
+                    rb.AddForce(Vector2.right * FORWARD_FORCE);
                 }
                 else if (TagDetect == 2)
                 {
+                    if (animator != null)
+                    {
+                        animator.Play("Base Layer.PlayerMovementAnimation");
+                    }
                     spriteRenderer.flipX = false;
-                    rigidbody.AddForce(Vector2.up * JUMP_HEIGHT * Time.deltaTime);
-                    rigidbody.AddForce(Vector2.left * FORWARD_FORCE * Time.deltaTime);
+                    rb.AddForce(Vector2.up * JUMP_HEIGHT);
+                    rb.AddForce(Vector2.left * FORWARD_FORCE);
                 }
             }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //rigidbody.velocity = Vector2.zero;
-        //if (collision.gameObject.tag == "Tree")
-        //{
-        //    TagDetect = 1;
-        //}
-        //else if (collision.gameObject.tag == "Tree 2")
-        //{
-        //    TagDetect = 2;
-        //}
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        TagDetect = 0;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        rigidbody.velocity = Vector2.zero;
+        rb.velocity = Vector2.zero;
         if (collision.gameObject.tag == "Tree")
         {
             TagDetect = 1;
@@ -65,5 +59,10 @@ public class PlayerMovement : MonoBehaviour
         {
             TagDetect = 2;
         }
-    }  
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        TagDetect = 0;
+    }
+
 }
