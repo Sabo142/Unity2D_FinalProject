@@ -40,6 +40,22 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //rigidbody.velocity = Vector2.zero;
+        //if (collision.gameObject.tag == "Tree")
+        //{
+        //    TagDetect = 1;
+        //}
+        //else if (collision.gameObject.tag == "Tree 2")
+        //{
+        //    TagDetect = 2;
+        //}
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        TagDetect = 0;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         rigidbody.velocity = Vector2.zero;
         if (collision.gameObject.tag == "Tree")
         {
@@ -49,9 +65,5 @@ public class PlayerMovement : MonoBehaviour
         {
             TagDetect = 2;
         }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        TagDetect = 0;
-    }
+    }  
 }
