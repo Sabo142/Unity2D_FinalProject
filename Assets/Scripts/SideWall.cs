@@ -15,4 +15,5 @@ public class SideWall : MonoBehaviour
             this.transform.position += new Vector3(0, 22, 0);
         }
     }
+  
 }
