@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e2276e717dce1d4f87dc3252012d628
+guid: 2e4c1edff88d113488483e354bfa1c8f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,19 +107,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,85 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Menu_Buttons_SpriteSheet_0
+      name: Menu_Buttons_SpriteSheet 1_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 29
-        width: 30
-        height: 14
+        x: 0
+        y: 32
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 968c60e3ad3f81948bfebe3d961dde03
-      internalID: -1264210602
+      spriteID: 461244e024f977343b61a1172a78fe77
+      internalID: 1831279147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_Buttons_SpriteSheet_1
+      name: Menu_Buttons_SpriteSheet 1_1
       rect:
         serializedVersion: 2
-        x: 57
-        y: 29
-        width: 30
-        height: 14
+        x: 64
+        y: 32
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbddc1fde7f873143acd3ab8f0d2cfe4
-      internalID: -520258739
+      spriteID: 3a705034d7f283a4cb7d2e36edbc7cdc
+      internalID: 172992936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_Buttons_SpriteSheet_2
+      name: Menu_Buttons_SpriteSheet 1_2
       rect:
         serializedVersion: 2
-        x: 12
-        y: 6
-        width: 24
-        height: 12
+        x: 0
+        y: 0
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e61789de1604b409f6a4e79c7159ee
-      internalID: -1150805598
+      spriteID: 801b72a00ef7553419484b46c9455ba2
+      internalID: 1821780793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_Buttons_SpriteSheet_3
+      name: Menu_Buttons_SpriteSheet 1_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 6
-        width: 24
-        height: 12
+        x: 64
+        y: 0
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19c12519a3e9690488f684a25b30f230
-      internalID: -1754920158
+      spriteID: 287b30611f703714284207347052d4af
+      internalID: 1564419086
       vertices: []
       indices: 
       edges: []
@@ -230,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Menu_Buttons_SpriteSheet_0: -1264210602
-      Menu_Buttons_SpriteSheet_1: -520258739
-      Menu_Buttons_SpriteSheet_2: -1150805598
-      Menu_Buttons_SpriteSheet_3: -1754920158
+      Menu_Buttons_SpriteSheet 1_0: 1831279147
+      Menu_Buttons_SpriteSheet 1_1: 172992936
+      Menu_Buttons_SpriteSheet 1_2: 1821780793
+      Menu_Buttons_SpriteSheet 1_3: 1564419086
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
