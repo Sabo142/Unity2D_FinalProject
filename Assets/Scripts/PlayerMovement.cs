@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
                 if (TagDetect == 1)
                 {
                    
-                        animator.Play("Rest");
+                    animator.Play("Rest");
                     
                     spriteRenderer.flipX = true;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
                 else if (TagDetect == 2)
                 {
                     
-                        animator.Play("Rest");
+                    animator.Play("Rest");
                     
                     spriteRenderer.flipX = false;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
@@ -54,9 +54,6 @@ public class PlayerMovement : MonoBehaviour
             TagDetect = 2;
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-       // TagDetect = 0;
-    }
+   
 
 }
