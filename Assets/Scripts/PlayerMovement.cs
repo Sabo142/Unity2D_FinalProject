@@ -9,11 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public int TagDetect;
     private Touch playerTouch;
     public Animator animator;
+    private void Awake()
+    {
+        GameManager.StateChanged += OnStateChanged;
+    }
     void Update()
     {
         TouchMovement();
     }
-
     private void TouchMovement()
     {
         if (Input.touchCount > 0)
@@ -23,18 +26,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (TagDetect == 1)
                 {
-                   
+
                     animator.Play("Rest");
-                    
+
                     spriteRenderer.flipX = true;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.right * FORWARD_FORCE);
                 }
                 else if (TagDetect == 2)
                 {
-                    
+
                     animator.Play("Rest");
-                    
+
                     spriteRenderer.flipX = false;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
@@ -53,7 +56,29 @@ public class PlayerMovement : MonoBehaviour
         {
             TagDetect = 2;
         }
+        else if (collision.collider.tag == "Snake")
+        {
+            GameManager.Instance.SetGameState(GameState.Dead);
+        }
     }
-   
+    void OnStateChanged(GameState gameState)
+    {
+        Debug.Log(gameState.ToString());
+        switch (gameState)
+        {
+            case GameState.Dead:
+                {
+                    Death();
+                }
+                break;
+        }
+    }
 
+    void Death()
+    {
+        animator.enabled = false;
+        rb.gravityScale = 1.0f;
+        rb.freezeRotation = false;
+        rb.MoveRotation(Random.Range(-90,90));
+    }
 }

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State;
-    public event Action<GameState> StateChanged;
+    public static event Action<GameState> StateChanged;
     private void Awake()
     {
         Instance = this;
@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
         StateChanged?.Invoke(State);
     }
 }
-
 public enum GameState
 {
     Menu,
