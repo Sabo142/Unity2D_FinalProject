@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     [SerializeField] private int JUMP_HEIGHT = 1000;
     [SerializeField] private int FORWARD_FORCE = 10000;
     [SerializeField] private Rigidbody2D rb;
@@ -80,5 +81,7 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 1.0f;
         rb.freezeRotation = false;
         rb.MoveRotation(Random.Range(-90,90));
+        
+        
     }
 }
