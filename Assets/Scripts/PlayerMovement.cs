@@ -82,6 +82,5 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = false;
         rb.MoveRotation(Random.Range(-90,90));
         
-        
     }
 }
