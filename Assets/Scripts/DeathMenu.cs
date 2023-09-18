@@ -9,21 +9,25 @@ public class DeathMenu : MonoBehaviour
     public Image backgroundIMG;
     private bool isShown = false;
     private float transition = 0f;
-    // Start is called before the first frame update
+    
+    
     void Start()
     {
         gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        
         if (!isShown) 
         {
             return;
         }
         transition += Time.deltaTime;
         backgroundIMG.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
+       
+        
     }
 
     public void ToggleDeathMenu()
@@ -34,6 +38,7 @@ public class DeathMenu : MonoBehaviour
 
     public void restart()
     {
+        GameManager.Instance.SetGameState(GameState.Play);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
