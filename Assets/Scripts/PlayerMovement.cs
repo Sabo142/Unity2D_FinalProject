@@ -66,23 +66,19 @@ public class PlayerMovement : MonoBehaviour
     void OnStateChanged(GameState gameState)
     {
         Debug.Log(gameState.ToString());
-        /*switch (gameState)
+        switch (gameState)
         {
             case GameState.Dead:
                 {
                     Death();
                     break;
                 }
-            
-        }*/
-        if(gameState == GameState.Dead) 
-        {
-            Death();
+            case GameState.Play:
+                {
+                    Play(); break;
+                }
         }
-        else if(gameState == GameState.Play) 
-        {
-            Play();
-        }
+        
     }
 
     void Death()
