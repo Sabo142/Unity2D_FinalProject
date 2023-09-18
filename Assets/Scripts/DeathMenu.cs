@@ -11,8 +11,9 @@ public class DeathMenu : MonoBehaviour
     private float transition = 0f;
     
     
-    void Start()
+    void Awake()
     {
+        
         gameObject.SetActive(false);
     }
 
@@ -42,6 +43,7 @@ public class DeathMenu : MonoBehaviour
     public void restart()
     {
         GameManager.Instance.SetGameState(GameState.Play);
+        
         SceneManager.LoadScene("SampleScene");
     }
 

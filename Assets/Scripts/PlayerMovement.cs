@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public DeathMenu deathmenu;
     [SerializeField] private int JUMP_HEIGHT = 1000;
     [SerializeField] private int FORWARD_FORCE = 10000;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         GameManager.StateChanged += OnStateChanged;
+        
         
     }
     void Update()
@@ -83,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
-       animator.enabled = false;
+        animator.enabled = false;
         rb.gravityScale = 1.0f;
         rb.freezeRotation = false;
         rb.MoveRotation(Random.Range(-90,90));
