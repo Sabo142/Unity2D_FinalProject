@@ -19,14 +19,16 @@ public class DeathMenu : MonoBehaviour
     
     void Update()
     {
-        
-        if (!isShown) 
+
+        if (!isShown)
         {
             return;
         }
-        transition += Time.deltaTime;
-        backgroundIMG.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
-       
+        else
+        {
+            transition += Time.deltaTime;
+            backgroundIMG.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
+        }
         
     }
 
@@ -38,8 +40,8 @@ public class DeathMenu : MonoBehaviour
 
     public void restart()
     {
-        GameManager.Instance.SetGameState(GameState.Play);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void ToMenu()

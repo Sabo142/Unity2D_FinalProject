@@ -70,11 +70,7 @@ public class PlayerMovement : MonoBehaviour
             case GameState.Dead:
                 {
                     Death();
-                    break;
-                }
-            case GameState.Play:
-                {
-                    Play();
+                    
                 }
                 break;
         }
@@ -87,11 +83,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = false;
         rb.MoveRotation(Random.Range(-90,90));
         deathmenu.ToggleDeathMenu();
+        
     }
-    void Play()
-    {
-        animator.enabled = true;
-        rb.gravityScale = 0f;
-        rb.freezeRotation = true;
-    }
+    
 }
