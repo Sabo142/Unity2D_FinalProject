@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         GameManager.StateChanged += OnStateChanged;
+        
     }
     void Update()
     {
@@ -65,25 +66,38 @@ public class PlayerMovement : MonoBehaviour
     void OnStateChanged(GameState gameState)
     {
         Debug.Log(gameState.ToString());
-        switch (gameState)
+        /*switch (gameState)
         {
             case GameState.Dead:
                 {
                     Death();
-                    
+                    break;
                 }
-                break;
+            
+        }*/
+        if(gameState == GameState.Dead) 
+        {
+            Death();
+        }
+        else if(gameState == GameState.Play) 
+        {
+            Play();
         }
     }
 
     void Death()
     {
-        animator.enabled = false;
+       animator.enabled = false;
         rb.gravityScale = 1.0f;
         rb.freezeRotation = false;
         rb.MoveRotation(Random.Range(-90,90));
         deathmenu.ToggleDeathMenu();
         
     }
-    
+    void Play()
+    {
+        animator.enabled = true;
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
+    }
 }

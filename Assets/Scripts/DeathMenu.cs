@@ -36,11 +36,12 @@ public class DeathMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
         isShown = true;
+        
     }
 
     public void restart()
     {
-
+        GameManager.Instance.SetGameState(GameState.Play);
         SceneManager.LoadScene("SampleScene");
     }
 
