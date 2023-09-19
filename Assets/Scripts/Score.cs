@@ -8,13 +8,6 @@ public class Score : MonoBehaviour
 {
     private float score = 0f;
     [SerializeField] private TMP_Text scoreText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         score += Time.deltaTime;

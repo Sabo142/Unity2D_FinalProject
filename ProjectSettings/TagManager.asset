@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Snake
+  - Tree
+  - Tree 2
+  - Coin
   layers:
   - Default
   - TransparentFX

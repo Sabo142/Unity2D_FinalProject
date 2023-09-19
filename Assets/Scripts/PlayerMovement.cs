@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public int TagDetect;
     private Touch playerTouch;
     public Animator animator;
+    public static int CoinCount;
     private void Awake()
     {
         GameManager.StateChanged += OnStateChanged;
