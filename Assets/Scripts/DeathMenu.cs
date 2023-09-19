@@ -9,13 +9,10 @@ public class DeathMenu : MonoBehaviour
     public Image backgroundIMG;
     private bool isShown = false;
     private float transition = 0f;
+    [SerializeField] private GameObject DeathMenuHolder;
+    [SerializeField] private CanvasGroup canvasGroup;
     
     
-    void Awake()
-    {
-        
-        gameObject.SetActive(false);
-    }
 
     
     void Update()
@@ -28,14 +25,14 @@ public class DeathMenu : MonoBehaviour
         else
         {
             transition += Time.deltaTime;
-            backgroundIMG.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
+            canvasGroup.alpha = transition/2;
         }
         
     }
 
     public void ToggleDeathMenu()
     {
-        gameObject.SetActive(true);
+        DeathMenuHolder.SetActive(true);
         isShown = true;
         
     }

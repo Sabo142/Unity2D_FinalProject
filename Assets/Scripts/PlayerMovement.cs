@@ -96,9 +96,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (deathmenu != null) 
         {
-            deathmenu.ToggleDeathMenu();
+            
         };
-        
+        deathmenu.ToggleDeathMenu();
     }
     void Play()
     {
