@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5378852, y: 0.5378852, z: 0.5378852}
+  m_LocalScale: {x: 0.64723724, y: 0.64723724, z: 0.64723724}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3399878690974584882}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43190dc5026634fac6a8dc0315a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinsCounter: {fileID: 0}
 --- !u!70 &7189714091310001825
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0310992, y: 0.00777483}
@@ -91,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3399878690974584882}
   - component: {fileID: 5599231430897879384}
+  - component: {fileID: 6950672309223269466}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -154,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5f2218c59513aed438554448d4031606, type: 3}
+  m_Sprite: {fileID: -1889925683, guid: d95a8e6a5256f8f40aea2eb8577398eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,3 +167,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6950672309223269466
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271577192143158421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca937e3fce0d9a745af87cca9af2f718, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
