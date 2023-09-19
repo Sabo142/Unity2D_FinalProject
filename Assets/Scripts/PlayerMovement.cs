@@ -85,17 +85,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
-        animator.enabled = false;
-        rb.gravityScale = 1.0f;
-        rb.freezeRotation = false;
-        rb.MoveRotation(Random.Range(-90,90));
-        deathmenu.ToggleDeathMenu();
+        if (animator != null) 
+            animator.enabled = false;
+        if (rb != null) 
+        {
+            rb.gravityScale = 1.0f;
+            rb.freezeRotation = false;
+            rb.MoveRotation(Random.Range(-90, 90));
+        }
+        if (deathmenu != null) 
+        {
+            deathmenu.ToggleDeathMenu();
+        };
         
     }
     void Play()
     {
-        animator.enabled = true;
-        rb.gravityScale = 0f;
-        rb.freezeRotation = true;
+        if (animator != null)
+            animator.enabled = true;
+        if (rb != null) 
+        {
+            rb.gravityScale = 0f;
+            rb.freezeRotation = true;
+        }
     }
 }
