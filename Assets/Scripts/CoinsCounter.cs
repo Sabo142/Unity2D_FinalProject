@@ -16,8 +16,8 @@ public class CoinsCounter : MonoBehaviour
     {
         coins += coin;
     }
-    public Coins DeactivateCoin()
-    {
-        
-    }
+    //    public Coins DeactivateCoin()
+    //    {
+
+    //    }
 }
