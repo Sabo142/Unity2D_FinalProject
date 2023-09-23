@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+    private void OnDestroy()
+    {
+        GameManager.StateChanged -= OnStateChanged;
+    }
     void Update()
     {
         TouchMovement();

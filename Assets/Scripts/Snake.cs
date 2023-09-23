@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int fallSpeed;
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.transform.position = this.transform.position + new Vector3(0, fallSpeed, 0) * Time.deltaTime;
+        if (this.transform.position.y < -11)
+        {
+            Destroy(gameObject);
+        }
     }
 }

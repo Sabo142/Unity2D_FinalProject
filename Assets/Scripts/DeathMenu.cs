@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class DeathMenu : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class DeathMenu : MonoBehaviour
     private float transition = 0f;
     [SerializeField] private GameObject DeathMenuHolder;
     [SerializeField] private CanvasGroup canvasGroup;
-    
-    
+    [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private CoinsCounter coinsCounter;
+    [SerializeField] private Score playerScore;
 
-    
     void Update()
     {
 
@@ -33,13 +34,15 @@ public class DeathMenu : MonoBehaviour
     public void ToggleDeathMenu()
     {
         DeathMenuHolder.SetActive(true);
+        int _score =(int)playerScore.score + (int)coinsCounter.coins * 5;
+        score.text = "Score: " +  _score.ToString();
         isShown = true;
         
     }
 
     public void restart()
     {
-        GameManager.Instance.SetGameState(GameState.Play);
+        //GameManager.Instance.SetGameState(GameState.Play);
         
         SceneManager.LoadScene("SampleScene");
     }

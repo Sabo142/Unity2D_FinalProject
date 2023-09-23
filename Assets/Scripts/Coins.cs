@@ -13,12 +13,12 @@ public class Coins : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             CoinsCounter.addCoin(1);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private void Update()
     {
-        this.transform.position = this.transform.position + new Vector3(0, fallSpeed, 0) * Time.deltaTime;
+        this.transform.position = this.transform.position + new Vector3(0, fallSpeed, -1) * Time.deltaTime;
         if (this.transform.position.y < -11)
         {
             Destroy(gameObject);

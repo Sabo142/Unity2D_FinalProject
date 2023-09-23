@@ -7,6 +7,10 @@ public class CoinPool : MonoBehaviour
     {
         GameManager.StateChanged += OnGameStateChanged;
     }
+    public void OnDestroy()
+    {
+        GameManager.StateChanged -= OnGameStateChanged;
+    }
     private void Start()
     {
         StartCoroutine(spawnCoins());
@@ -18,6 +22,7 @@ public class CoinPool : MonoBehaviour
         Instantiate(coinPrefab, new Vector3(randomCoinPosition, 7, 0), Quaternion.identity);
         yield return new WaitForSeconds(randomTimeSpawn);
         StartCoroutine(spawnCoins());
+        
     }
     public void OnGameStateChanged(GameState gameState)
     {
@@ -25,9 +30,14 @@ public class CoinPool : MonoBehaviour
         {
             case GameState.Play:
                 {
-                    StartCoroutine(spawnCoins());
+                    { StartCoroutine(spawnCoins()); }
+                    
                 }
                 break;
+                case GameState.Dead:
+                {
+                    StopCoroutine(spawnCoins());
+                }break;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CoinsCounter : MonoBehaviour
 {
-    private float coins = 0f;
+    public float coins = 0f;
     [SerializeField] private TMP_Text coinText;
     void Update()
     {

@@ -6,11 +6,37 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    private float score = 0f;
+    public float score = 0f;
     [SerializeField] private TMP_Text scoreText;
+    private bool alive = true;
+    private void Awake()
+    {
+        GameManager.StateChanged += OnGameStateChange;
+    }
+    private void OnDestroy()
+    {
+        GameManager.StateChanged -= OnGameStateChange;
+    }
     void Update()
     {
-        score += Time.deltaTime;
-        scoreText.text = ((int)score).ToString();
+        if (alive)
+        {
+            score += Time.deltaTime;
+            scoreText.text = ((int)score).ToString();
+        }
+        
+    }
+    private void OnGameStateChange(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Dead:
+                {
+                    alive = false;
+                }
+                break;
+                
+                
+        }
     }
 }
