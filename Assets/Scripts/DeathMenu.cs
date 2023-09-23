@@ -39,6 +39,7 @@ public class DeathMenu : MonoBehaviour
         isShown = true;
         
     }
+    
 
     public void restart()
     {

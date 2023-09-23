@@ -24,7 +24,11 @@ public class Score : MonoBehaviour
             score += Time.deltaTime;
             scoreText.text = ((int)score).ToString();
         }
-        
+
+    }
+    private void CheckForNewHighScore()
+    {
+
     }
     private void OnGameStateChange(GameState state)
     {
@@ -33,6 +37,7 @@ public class Score : MonoBehaviour
             case GameState.Dead:
                 {
                     alive = false;
+                    CheckForNewHighScore();
                 }
                 break;
                 
