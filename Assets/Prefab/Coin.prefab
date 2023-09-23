@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43190dc5026634fac6a8dc0315a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallSpeed: -3
   CoinsCounter: {fileID: 0}
 --- !u!70 &7189714091310001825
 CapsuleCollider2D:

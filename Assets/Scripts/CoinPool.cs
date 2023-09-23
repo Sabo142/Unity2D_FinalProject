@@ -1,17 +1,33 @@
+using System.Collections;
 using UnityEngine;
-
 public class CoinPool : MonoBehaviour
 {
-    private int poolSize = 10;
     [SerializeField] Coins coinPrefab;
-    private Coins[] coinPool;
-    void Start()
+    public void Awake()
     {
-        coinPool = new Coins[poolSize];
-        for (int i = 0; i < poolSize; i++)
+        GameManager.StateChanged += OnGameStateChanged;
+    }
+    private void Start()
+    {
+        StartCoroutine(spawnCoins());
+    }
+    IEnumerator spawnCoins()
+    {
+        int randomTimeSpawn = Random.Range(4, 8);
+        float randomCoinPosition = Random.Range(-1.46f, 1.46f);
+        Instantiate(coinPrefab, new Vector3(randomCoinPosition, 7, 0), Quaternion.identity);
+        yield return new WaitForSeconds(randomTimeSpawn);
+        StartCoroutine(spawnCoins());
+    }
+    public void OnGameStateChanged(GameState gameState)
+    {
+        switch (gameState)
         {
-            coinPool[i] = Instantiate(coinPrefab);
-            coinPool[i].gameObject.SetActive(true);
+            case GameState.Play:
+                {
+                    StartCoroutine(spawnCoins());
+                }
+                break;
         }
-    }  
+    }
 }
