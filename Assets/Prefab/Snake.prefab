@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: -3
+  animator: {fileID: 8898114774212892141}
 --- !u!61 &6030463130480405261
 BoxCollider2D:
   m_ObjectHideFlags: 0

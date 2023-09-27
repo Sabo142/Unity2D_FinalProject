@@ -3,11 +3,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState State;
+    public GameState State = GameState.Play;
     public static event Action<GameState> StateChanged;
+    public string PlayerName = "name";
     private void Awake()
     {
         Instance = this;
+        State = GameState.Play;
     }
     public void SetGameState(GameState gameState)
     {
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
 }
 public enum GameState
 {
-    Menu,
+    PauseMenu,
     Play,
     Dead,
 }

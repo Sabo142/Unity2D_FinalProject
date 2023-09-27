@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: -3
   CoinsCounter: {fileID: 0}
+  animator: {fileID: 6950672309223269466}
 --- !u!70 &7189714091310001825
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

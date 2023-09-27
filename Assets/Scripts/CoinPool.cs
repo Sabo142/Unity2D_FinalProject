@@ -3,6 +3,7 @@ using UnityEngine;
 public class CoinPool : MonoBehaviour
 {
     [SerializeField] Coins coinPrefab;
+    private bool gameIsPaused;
     public void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;
@@ -17,12 +18,16 @@ public class CoinPool : MonoBehaviour
     }
     IEnumerator spawnCoins()
     {
-        int randomTimeSpawn = Random.Range(4, 8);
-        float randomCoinPosition = Random.Range(-1.46f, 1.46f);
-        Instantiate(coinPrefab, new Vector3(randomCoinPosition, 7, 0), Quaternion.identity);
+        float randomTimeSpawn = Random.Range(4f, 8f);
         yield return new WaitForSeconds(randomTimeSpawn);
+        if (!gameIsPaused)
+        {
+            float randomCoinPosition = Random.Range(-1.46f, 1.46f);
+            Instantiate(coinPrefab, new Vector3(randomCoinPosition, 7, 0), Quaternion.identity);
+        } 
         StartCoroutine(spawnCoins());
-        
+
+
     }
     public void OnGameStateChanged(GameState gameState)
     {
@@ -30,13 +35,19 @@ public class CoinPool : MonoBehaviour
         {
             case GameState.Play:
                 {
-                    { StartCoroutine(spawnCoins()); }
+                    { 
+                        gameIsPaused = false;
+                    }
                     
+                }break;
+            case GameState.PauseMenu:
+                {
+                    gameIsPaused = true;
                 }
                 break;
-                case GameState.Dead:
+            case GameState.Dead:
                 {
-                    StopCoroutine(spawnCoins());
+                    gameIsPaused = true;
                 }break;
         }
     }

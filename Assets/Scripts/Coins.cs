@@ -4,6 +4,7 @@ public class Coins : MonoBehaviour
 {
     [SerializeField] int fallSpeed = -3;
     [SerializeField] CoinsCounter CoinsCounter;
+    [SerializeField] Animator animator;
     private void Start()
     {
         CoinsCounter = GameObject.Find("HUD").GetComponent<CoinsCounter>();
@@ -18,6 +19,9 @@ public class Coins : MonoBehaviour
     }
     private void Update()
     {
+        if(GameManager.Instance.State != GameState.Play) { animator.enabled = false;}
+        else { animator.enabled = true; }
+        if (GameManager.Instance.State != GameState.Play) return;
         this.transform.position = this.transform.position + new Vector3(0, fallSpeed, -1) * Time.deltaTime;
         if (this.transform.position.y < -11)
         {

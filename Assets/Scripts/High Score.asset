@@ -13,9 +13,32 @@ MonoBehaviour:
   m_Name: High Score
   m_EditorClassIdentifier: 
   scoreList:
+  - _name: 0
+    _score: 55
   - _name: ben
-    _score: 100
+    _score: 29
+  - _name: ben
+    _score: 28
+  - _name: ben
+    _score: 19
+  - _name: ben
+    _score: 17
+  - _name: ben
+    _score: 16
+  - _name: ben
+    _score: 13
+  - _name: ben
+    _score: 12
+  - _name: ben
+    _score: 7
+  - _name: ben
+    _score: 7
+  - _name: ben
+    _score: 7
   - _name: bar
-    _score: 50
-  - _name: ran
-    _score: 150
+    _score: 7
+  - _name: bar
+    _score: 7
+  - _name: bar
+    _score: 7
+  PlayerName: bar

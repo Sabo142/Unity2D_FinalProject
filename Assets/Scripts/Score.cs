@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+
     public float score = 0f;
     [SerializeField] private TMP_Text scoreText;
     private bool alive = true;
@@ -26,10 +24,7 @@ public class Score : MonoBehaviour
         }
 
     }
-    private void CheckForNewHighScore()
-    {
 
-    }
     private void OnGameStateChange(GameState state)
     {
         switch (state)
@@ -37,11 +32,23 @@ public class Score : MonoBehaviour
             case GameState.Dead:
                 {
                     alive = false;
-                    CheckForNewHighScore();
+
                 }
                 break;
-                
-                
+            case GameState.PauseMenu:
+                {
+                    alive = false;
+
+                }
+                break;
+            case GameState.Play:
+                {
+                    alive = true;
+
+                }
+                break;
+
+
         }
     }
 }

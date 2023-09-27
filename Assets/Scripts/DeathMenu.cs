@@ -18,7 +18,7 @@ public class DeathMenu : MonoBehaviour
 
     void Update()
     {
-
+        
         if (!isShown)
         {
             return;
@@ -42,9 +42,7 @@ public class DeathMenu : MonoBehaviour
     
 
     public void restart()
-    {
-        //GameManager.Instance.SetGameState(GameState.Play);
-        
+    { 
         SceneManager.LoadScene("SampleScene");
     }
 

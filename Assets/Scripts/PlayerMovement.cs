@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         GameManager.StateChanged += OnStateChanged;
-        
-        
     }
     private void OnDestroy()
     {
@@ -28,9 +26,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void TouchMovement()
     {
+        if (GameManager.Instance.State != GameState.Play) return;
         if (Input.touchCount > 0)
         {
             playerTouch = Input.GetTouch(0);
+            if (playerTouch.position.y > 1990) return;
             if (playerTouch.phase == TouchPhase.Began)
             {
                 if (TagDetect == 1)
@@ -84,6 +84,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Play(); break;
                 }
+            case GameState.PauseMenu:
+                {
+                    animator.enabled = false;
+                    break;
+                }
+
         }
         
     }

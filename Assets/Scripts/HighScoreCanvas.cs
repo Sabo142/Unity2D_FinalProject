@@ -7,7 +7,19 @@ public class HighScoreCanvas : MonoBehaviour
 {
     [SerializeField] private List<ScoreHolder> scoreHolders;
     [SerializeField] private HighScore highScoreList;
+    [SerializeField] private Score scoreCanvas;
+    [SerializeField] private CoinsCounter coinsCounter;
+    [SerializeField] private GameObject NewHighScoreText;
+    [SerializeField] private GameObject HighScoreCanvasHolder;
 
+    private void Awake()
+    {
+        GameManager.StateChanged += OnStateChanged;
+    }
+    private void OnDestroy()
+    {
+        GameManager.StateChanged -= OnStateChanged;
+    } 
     [ContextMenu("Show Score")]
     public void AddToList()
     {
@@ -18,9 +30,47 @@ public class HighScoreCanvas : MonoBehaviour
 
         }
     }
+    void OnStateChanged(GameState gameState)
+    {
+        Debug.Log(gameState.ToString());
+        switch (gameState)
+        {
+            case GameState.Dead:
+                {
+                    CheckForNewHighScore();
+                    
+                    break;
+                }
+            case GameState.Play:
+                {
+                     break;
+                }
+        }
+
+    }
+    public void CheckForNewHighScore()
+    {
+        int finalScore = (int)scoreCanvas.score + (int)(coinsCounter.coins * 5);
+
+        if(highScoreList.CheckForHighScore(finalScore))
+        {
+            NewHighScoreText.SetActive(true);
+            highScoreList.InsertNewHighScore(finalScore);
+            
+        }
+        AddToList();
+
+    }
+   
     public void GoToMenu()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+    public void GoToHighScoreTable()
+    {
+        HighScoreCanvasHolder.SetActive(true);
+        NewHighScoreText.SetActive(false);
+        Debug.Log("GoToHighScore");
     }
 
 }
