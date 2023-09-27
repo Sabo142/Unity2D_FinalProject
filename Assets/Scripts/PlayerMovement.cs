@@ -1,4 +1,7 @@
+using System.Threading;
+using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int FORWARD_FORCE = 10000;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    private float TimeWhileSpin = 0f;
     public int TagDetect;
     private Touch playerTouch;
     public Animator animator;
@@ -23,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         TouchMovement();
+        TimeWhileSpin += Time.deltaTime;
     }
     private void TouchMovement()
     {
@@ -54,18 +59,30 @@ public class PlayerMovement : MonoBehaviour
             }
             TagDetect = 0;
         }
+        if (Input.touchCount > 1)
+        {
+            playerTouch = Input.GetTouch(0);
+            if (playerTouch.position.y > 1990) return;
+            spriteRenderer.transform.Rotate(Vector2.right * JUMP_HEIGHT);
+            animator.Play("SpinnyPanda");
+            if (TimeWhileSpin < 1)
+            {
+                GameManager.Instance.SetGameState(GameState.Dead);
+            }
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Tree")
         {
             TagDetect = 1;
+            int timer = 0;
         }
         else if (collision.gameObject.tag == "Tree 2")
         {
             TagDetect = 2;
         }
-        else if (collision.collider.tag == "Snake")
+        else if (collision.collider.tag == "Snake" || collision.collider.tag == "Fly" || collision.collider.tag == "Grasshopper")
         {
             GameManager.Instance.SetGameState(GameState.Dead);
         }
