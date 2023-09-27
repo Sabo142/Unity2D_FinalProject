@@ -8,6 +8,8 @@ TagManager:
   - Tree
   - Tree 2
   - Coin
+  - Fly
+  - Grasshopper
   layers:
   - Default
   - TransparentFX
