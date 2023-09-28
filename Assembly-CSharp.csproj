@@ -77,6 +77,7 @@
     <Compile Include="Assets\LeanTween\Testing\TestingRotate.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing243.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
+    <Compile Include="Assets\Scripts\Analytics.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\Scripts\DeathMenu.cs" />
@@ -395,6 +396,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -771,23 +775,71 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Services.Analytics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    <Reference Include="Unity.2D.Common.Path.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Common">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Common.Path.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -813,23 +865,11 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Aseprite.Common">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.005">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.005.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
@@ -837,17 +877,8 @@
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -855,23 +886,17 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    <Reference Include="Unity.Services.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
@@ -879,14 +904,8 @@
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Aseprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
