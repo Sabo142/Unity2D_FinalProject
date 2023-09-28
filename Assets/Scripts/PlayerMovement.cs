@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int JUMP_HEIGHT = 1000;
     [SerializeField] private int FORWARD_FORCE = 10000;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject SpriteGameObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private float TimeWhileSpin = 0f;
     public int TagDetect;
@@ -113,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
+        
         if (animator != null) 
             animator.enabled = false;
         if (rb != null) 
@@ -125,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         {
             deathmenu.ToggleDeathMenu();
         };
-        
+        LeanTween.color(SpriteGameObject, Color.black, 1);
     }
     void Play()
     {

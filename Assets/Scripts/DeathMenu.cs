@@ -25,8 +25,8 @@ public class DeathMenu : MonoBehaviour
         }
         else
         {
-            transition += Time.deltaTime;
-            canvasGroup.alpha = transition/2;
+            //transition += Time.deltaTime;
+            //canvasGroup.alpha = transition/2;
         }
         
     }

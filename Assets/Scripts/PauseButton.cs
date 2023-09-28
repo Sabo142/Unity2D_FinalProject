@@ -31,6 +31,7 @@ public class PauseButton : MonoBehaviour
     }
     private void StartPause()
     {
+
         image.sprite = resumeSprite;
         GameManager.Instance.SetGameState(GameState.PauseMenu);
     }

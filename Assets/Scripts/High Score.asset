@@ -15,30 +15,14 @@ MonoBehaviour:
   scoreList:
   - _name: 0
     _score: 55
-  - _name: ben
-    _score: 29
-  - _name: ben
-    _score: 28
-  - _name: ben
-    _score: 19
-  - _name: ben
-    _score: 17
-  - _name: ben
-    _score: 16
-  - _name: ben
-    _score: 13
-  - _name: ben
-    _score: 12
-  - _name: ben
-    _score: 7
-  - _name: ben
-    _score: 7
-  - _name: ben
-    _score: 7
+  - _name: bar
+    _score: 14
   - _name: bar
     _score: 7
   - _name: bar
-    _score: 7
+    _score: 6
   - _name: bar
-    _score: 7
+    _score: 5
+  - _name: bar
+    _score: 4
   PlayerName: bar
