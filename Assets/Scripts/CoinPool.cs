@@ -14,6 +14,7 @@ public class CoinPool : MonoBehaviour
     }
     private void Start()
     {
+        coinPrefab = Resources.Load<Coins>("Prefab/Coin");
         StartCoroutine(spawnCoins());
     }
     IEnumerator spawnCoins()

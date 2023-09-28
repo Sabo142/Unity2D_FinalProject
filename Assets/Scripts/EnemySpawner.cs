@@ -23,6 +23,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        grasshopper = Resources.Load<GameObject>("Prefab/Grasshopper");
+        fly = Resources.Load<GameObject>("Prefab/Fly");
+        snake = Resources.Load<GameObject>("Prefab/Snake");
         StartCoroutine(spawnEnemy());
     }
     IEnumerator spawnEnemy()

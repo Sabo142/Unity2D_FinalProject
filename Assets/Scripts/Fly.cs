@@ -4,7 +4,6 @@ public class Fly : MonoBehaviour
 {
     [SerializeField] private int flySpeed;
     [SerializeField] Animator animator;
-    private bool gameIsPaused;
 
     private void Awake()
     {
@@ -32,7 +31,6 @@ public class Fly : MonoBehaviour
                 {
                     {
                         animator.enabled = true;
-                        gameIsPaused = false;
                     }
 
                 }
@@ -41,7 +39,6 @@ public class Fly : MonoBehaviour
                 {
                     {
                         animator.enabled = false;
-                        gameIsPaused = true;
                     }
 
                 }
@@ -50,7 +47,6 @@ public class Fly : MonoBehaviour
                 {
                     {
                         animator.enabled = false;
-                        gameIsPaused = true;
                     }
                 }
                 break;

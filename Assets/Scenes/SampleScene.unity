@@ -1092,7 +1092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 509722983}
   - component: {fileID: 509722982}
-  - component: {fileID: 509722984}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1129,18 +1128,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &509722984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509722981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62516dfbd2b80a84d9415141e1c67b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eab9ca8b9dbe84ea296d5ff7b6fb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 8570803932910275421, guid: 9c01b930010bb494d979537861acb933, type: 3}
+  coinPrefab: {fileID: 0}
 --- !u!4 &671664279
 Transform:
   m_ObjectHideFlags: 0
@@ -1793,9 +1780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe97efd818dc7f47b24d1fe18a44e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grasshopper: {fileID: 8595527546905651050, guid: 5f769cc46352aee4db936a988cea75fc, type: 3}
-  fly: {fileID: 321172558003091284, guid: 776a62447c024d943b8d0a59d4ac0c40, type: 3}
-  snake: {fileID: 7415723336975714052, guid: 476a5af26d96aa54d883825a22a5419f, type: 3}
+  grasshopper: {fileID: 0}
+  fly: {fileID: 0}
+  snake: {fileID: 0}
   treeLeft: {fileID: 1145419569}
   treeRight: {fileID: 1839250441}
 --- !u!1 &683501263
