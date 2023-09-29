@@ -2,6 +2,7 @@ using System.Threading;
 using System.Collections;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.Analytics;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +21,16 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         GameManager.StateChanged += OnStateChanged;
+        SendCustomEvent();
+    }
+    public void SendCustomEvent()
+    {
+
+        Analytics.SendEvent("PlayerScore", true, 1, "ok");
+        /*AnalyticsEvent.Custom("PlayerScore", new
+        {
+            Score = 100,
+        });*/
     }
     private void OnDestroy()
     {

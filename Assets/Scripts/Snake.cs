@@ -6,7 +6,7 @@ public class Snake : MonoBehaviour
 {
     [SerializeField] private int fallSpeed;
     [SerializeField] Animator animator;
-    private bool gameIsPaused;
+
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class Snake : MonoBehaviour
                 {
                     {
                         animator.enabled = true;
-                        gameIsPaused = false; }
+                    }
 
                 }
                 break;
@@ -42,7 +42,6 @@ public class Snake : MonoBehaviour
                 {
                     {
                         animator.enabled = false;
-                        gameIsPaused = true; 
                     }
 
                 }
@@ -51,7 +50,6 @@ public class Snake : MonoBehaviour
                 {
                     {
                         animator.enabled = false;
-                        gameIsPaused = true; 
                     }
                 }
                 break;
