@@ -1,12 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class DeathMenu : MonoBehaviour
 {
+    /*public void SendCustomEvent()
+    {
+        AnalyticsEvent.Custom("PlayerScore", new
+        {
+            Score = 100,
+        });
+    }*/
+
     public Image backgroundIMG;
     private bool isShown = false;
     private float transition = 0f;
@@ -16,38 +24,24 @@ public class DeathMenu : MonoBehaviour
     [SerializeField] private CoinsCounter coinsCounter;
     [SerializeField] private Score playerScore;
 
-    void Update()
-    {
-        
-        if (!isShown)
-        {
-            return;
-        }
-        else
-        {
-            //transition += Time.deltaTime;
-            //canvasGroup.alpha = transition/2;
-        }
-        
-    }
+    
 
     public void ToggleDeathMenu()
     {
         DeathMenuHolder.SetActive(true);
-        int _score =(int)playerScore.score + (int)coinsCounter.coins * 5;
-        score.text = "Score: " +  _score.ToString();
+        int _score = (int)playerScore.score + (int)coinsCounter.coins * 5;
+        score.text = "Score: " + _score.ToString();
         isShown = true;
-        
+
     }
-    
 
     public void restart()
-    { 
-        SceneManager.LoadScene("SampleScene");
-    }
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
 
-    public void ToMenu()
-    {
-        SceneManager.LoadScene("Main Menu");
+        public void ToMenu()
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
-}

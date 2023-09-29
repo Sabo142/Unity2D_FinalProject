@@ -1,4 +1,5 @@
-using System;
+/*using System;
+using Unity.Services.Analytics;
 using Unity.Services.Core;
 using UnityEngine;
 
@@ -14,5 +15,11 @@ public class Analytics : MonoBehaviour
         {
             Debug.LogException(e);
         }
+        ConsentGiven();
+    }
+    void ConsentGiven()
+    {
+        AnalyticsService.Instance.StartDataCollection();
     }
 }
+*/
