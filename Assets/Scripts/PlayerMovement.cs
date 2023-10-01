@@ -88,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Tree")
         {
             TagDetect = 1;
-            int timer = 0;
         }
         else if (collision.gameObject.tag == "Tree 2")
         {

@@ -58,7 +58,6 @@ public class EnemySpawner : MonoBehaviour
                     {
                         gameIsPaused = false; 
                     }
-
                 }
                 break;
             case GameState.PauseMenu:
