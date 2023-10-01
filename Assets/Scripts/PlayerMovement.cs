@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject SpriteGameObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private float TimeWhileSpin = 0f;
+    private float SpinTime = 0f;
     public int TagDetect;
+    private float lastTouchTime = 0f;
+    private float MultiTapDelay = 1f;
     private Touch playerTouch;
     public Animator animator;
     public static int CoinCount;
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         TouchMovement();
-        TimeWhileSpin += Time.deltaTime;
+        MultiTap();
     }
     private void TouchMovement()
     {
@@ -71,16 +73,21 @@ public class PlayerMovement : MonoBehaviour
             }
             TagDetect = 0;
         }
+    }
+    private void MultiTap()
+    {
         if (Input.touchCount > 1)
         {
-            playerTouch = Input.GetTouch(0);
+            Touch touch = Input.touches[1];
+            // playerTouch = Input.GetTouch(0);
             if (playerTouch.position.y > 1990) return;
-            spriteRenderer.transform.Rotate(Vector2.right * JUMP_HEIGHT);
-            animator.Play("SpinnyPanda");
-            if (TimeWhileSpin < 1)
+            if (Time.time - lastTouchTime <= MultiTapDelay)
             {
-                GameManager.Instance.SetGameState(GameState.Dead);
+                animator.Play("SpinnyPanda");
             }
+            lastTouchTime = Time.time;
+            // spriteRenderer.transform.Rotate(Vector2.right * JUMP_HEIGHT);
+            animator.StopPlayback();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
