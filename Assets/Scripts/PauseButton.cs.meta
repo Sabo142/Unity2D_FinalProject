@@ -3,7 +3,11 @@ guid: 9221b7e0e8c21a6478d75b85cbe5c722
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - image: {instanceID: 0}
+  - pauseSprite: {instanceID: 0}
+  - resumeSprite: {instanceID: 0}
+  - gameMusic: {fileID: 8300000, guid: b15d3944a3b77f8458b4bc70b471b81e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

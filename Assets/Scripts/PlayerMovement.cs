@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private float MultiTapDelay = 1f;
     private Touch playerTouch;
     public Animator animator;
+    public AudioClip movementSound;
+    public AudioClip gameMusic;
+    public AudioClip deathSound;
     public static int CoinCount;
     private void Awake()
     {
@@ -56,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     animator.Play("Rest");
-
+                    AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = true;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.right * FORWARD_FORCE);
@@ -65,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     animator.Play("Rest");
-
+                    AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = false;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
@@ -79,15 +82,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 1)
         {
             Touch touch = Input.touches[1];
-            // playerTouch = Input.GetTouch(0);
             if (playerTouch.position.y > 1990) return;
             if (Time.time - lastTouchTime <= MultiTapDelay)
             {
                 animator.Play("SpinnyPanda");
+                AudioSource.PlayClipAtPoint(movementSound, transform.position);
             }
             lastTouchTime = Time.time;
-            // spriteRenderer.transform.Rotate(Vector2.right * JUMP_HEIGHT);
-            animator.StopPlayback();
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -117,7 +119,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             case GameState.Play:
                 {
-                    Play(); break;
+                    Play();
+                    break;
                 }
             case GameState.PauseMenu:
                 {
@@ -131,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
-        
+        // AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (animator != null) 
             animator.enabled = false;
         if (rb != null) 
@@ -148,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Play()
     {
+        // AudioSource.PlayClipAtPoint(gameMusic, transform.position);
         if (animator != null)
             animator.enabled = true;
         if (rb != null) 
