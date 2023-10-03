@@ -7,30 +7,20 @@ using UnityEngine.Analytics;
 
 public class DeathMenu : MonoBehaviour
 {
-   /* public void SendCustomEvent()
-    {
-
-        
-        AnalyticsEvent.Custom("PlayerScore", new
-        {
-            Score = 100,
-        });
-    }*/
-
     public Image backgroundIMG;
     [SerializeField] private GameObject DeathMenuHolder;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private CoinsCounter coinsCounter;
     [SerializeField] private Score playerScore;
-    public AudioClip deathSound;
-
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioSource audioSource;
 
 
     public void ToggleDeathMenu()
     {
         DeathMenuHolder.SetActive(true);
-        // AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        audioSource.enabled = true;
         int _score = (int)playerScore.score + (int)coinsCounter.coins * 5;
         score.text = "Score: " + _score.ToString();
 

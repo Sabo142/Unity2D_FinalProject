@@ -9,6 +9,7 @@ public class PauseButton : MonoBehaviour
     [SerializeField] private Sprite resumeSprite;
     [SerializeField] private bool gameIsPaused = false;
     public AudioClip gameMusic;
+    [SerializeField] private AudioSource AS;
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChange;
@@ -35,12 +36,13 @@ public class PauseButton : MonoBehaviour
 
         image.sprite = resumeSprite;
         GameManager.Instance.SetGameState(GameState.PauseMenu);
+        AS.Pause();
     }
     private void StopPause()
     {
         image.sprite = pauseSprite;
         GameManager.Instance.SetGameState(GameState.Play);
-        // AudioSource.PlayClipAtPoint(gameMusic, transform.position);
+        AS.UnPause();
     }
     private void OnGameStateChange(GameState state)
     {
