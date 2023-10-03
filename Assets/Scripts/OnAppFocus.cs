@@ -1,17 +1,12 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class OnAppFocus : MonoBehaviour
 {
     public bool IsGamePaused = false;
-
-    void OnGUI()
-    {
-    if (IsGamePaused)
-        {
-            //GUI.Label(new Rect(100, 100, 50, 30),"GAME PAUSED");
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 50, 30), "GAME PAUSED");
-        }
-    }
+    [SerializeField] private TextMeshProUGUI pauseText;
+    
     private void OnApplicationFocus(bool focus)
     {
         IsGamePaused = !focus;
@@ -19,5 +14,12 @@ public class OnAppFocus : MonoBehaviour
     private void OnApplicationPause(bool pause)
     {
         IsGamePaused = pause;
+        if (IsGamePaused)
+        {
+            pauseText.text = "GAME PAUSED";
+            Debug.Log("game paused");
+        }
+        else
+            pauseText.text = "";
     }
 }
