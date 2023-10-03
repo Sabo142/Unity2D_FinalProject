@@ -12,10 +12,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private HighScore highScore;
 
-    void start()
-    {
-        AnalyticsService.Instance.StartDataCollection();
-    }
+    
     public void OnNameTextChange(string input)
     {
         highScore.PlayerName = input;
