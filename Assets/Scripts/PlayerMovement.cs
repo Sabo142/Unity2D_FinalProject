@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject SpriteGameObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private float SpinTime = 0f;
+    [SerializeField] private float SpinTime = 0f;
     public int TagDetect;
     private float lastTouchTime = 0f;
     private float MultiTapDelay = 1f;
@@ -30,12 +30,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SendCustomEvent()
     {
-
         Analytics.SendEvent("PlayerScore", true, 1, "ok");
-        /*AnalyticsEvent.Custom("PlayerScore", new
-        {
-            Score = 100,
-        });*/
     }
     private void OnDestroy()
     {
@@ -77,29 +72,31 @@ public class PlayerMovement : MonoBehaviour
             TagDetect = 0;
         }
     }
+   
     private void MultiTap()
     {
-        if (Input.touchCount > 1)
+        if(SpinTime > 0f) SpinTime -= Time.deltaTime;
+        if (Input.touchCount > 1 && TagDetect == 0)
         {
             Touch touch = Input.touches[1];
             if (playerTouch.position.y > 1990) return;
-            if (Time.time - lastTouchTime <= MultiTapDelay)
-            {
-                animator.Play("SpinnyPanda");
-                AudioSource.PlayClipAtPoint(movementSound, transform.position);
-            }
-            lastTouchTime = Time.time;
+            SpinTime = 0.3f;
+            animator.Play("SpinnyPanda");
+            AudioSource.PlayClipAtPoint(movementSound, transform.position);
 
         }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Tree")
         {
+            if (SpinTime > 0f) GameManager.Instance.SetGameState(GameState.Dead); 
             TagDetect = 1;
         }
         else if (collision.gameObject.tag == "Tree 2")
         {
+            if (SpinTime > 0f) GameManager.Instance.SetGameState(GameState.Dead);
             TagDetect = 2;
         }
         else if (collision.collider.tag == "Snake" || collision.collider.tag == "Fly" || collision.collider.tag == "Grasshopper")
