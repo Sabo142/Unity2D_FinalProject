@@ -874,7 +874,7 @@ PlayerSettings:
     Legacy Analytics: 0
     Purchasing: 0
     UDP: 0
-    Unity Ads: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -894,11 +894,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: b5ac4564-dcb0-42d0-8cc1-e0fde19267a3
+  cloudProjectId: 0814f48c-1372-43a0-85c0-e1dd910c34f0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: FInalProjectUnitySquads (1)
-  organizationId: sabo123
+  organizationId: tisyourgoy
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

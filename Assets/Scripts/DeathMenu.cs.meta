@@ -3,7 +3,14 @@ guid: 1ddb8366cb2c51749b553956e8c659d7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - backgroundIMG: {instanceID: 0}
+  - DeathMenuHolder: {instanceID: 0}
+  - canvasGroup: {instanceID: 0}
+  - score: {instanceID: 0}
+  - coinsCounter: {instanceID: 0}
+  - playerScore: {instanceID: 0}
+  - deathSound: {fileID: 8300000, guid: 8d8c2caa114593e45940dab7c7ded250, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

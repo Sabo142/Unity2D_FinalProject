@@ -20,4 +20,8 @@ public class DragItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         itemIconImage.color = new Color(itemIconImage.color.r, itemIconImage.color.g, itemIconImage.color.b, 0.5f);
         highlightObject.SetActive(false);
     }
+    private void Update()
+    {
+        Physics2D.gravity = new Vector2(Input.acceleration.x * 100f, Input.acceleration.y * 100f);
+    }
 }

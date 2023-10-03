@@ -13,12 +13,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject SpriteGameObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private float SpinTime = 0f;
+    [SerializeField] private float SpinTime = 0f;
     public int TagDetect;
     private float lastTouchTime = 0f;
     private float MultiTapDelay = 1f;
     private Touch playerTouch;
     public Animator animator;
+    public AudioClip movementSound;
+    public AudioClip gameMusic;
+    public AudioClip deathSound;
     public static int CoinCount;
     private void Awake()
     {
@@ -27,12 +30,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SendCustomEvent()
     {
-
         Analytics.SendEvent("PlayerScore", true, 1, "ok");
-        /*AnalyticsEvent.Custom("PlayerScore", new
-        {
-            Score = 100,
-        });*/
     }
     private void OnDestroy()
     {
@@ -56,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     animator.Play("Rest");
-
+                    AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = true;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.right * FORWARD_FORCE);
@@ -65,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     animator.Play("Rest");
-
+                    AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = false;
                     rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
@@ -74,30 +72,31 @@ public class PlayerMovement : MonoBehaviour
             TagDetect = 0;
         }
     }
+   
     private void MultiTap()
     {
-        if (Input.touchCount > 1)
+        if(SpinTime > 0f) SpinTime -= Time.deltaTime;
+        if (Input.touchCount > 1 && TagDetect == 0)
         {
             Touch touch = Input.touches[1];
-            // playerTouch = Input.GetTouch(0);
             if (playerTouch.position.y > 1990) return;
-            if (Time.time - lastTouchTime <= MultiTapDelay)
-            {
-                animator.Play("SpinnyPanda");
-            }
-            lastTouchTime = Time.time;
-            // spriteRenderer.transform.Rotate(Vector2.right * JUMP_HEIGHT);
-            animator.StopPlayback();
+            SpinTime = 0.3f;
+            animator.Play("SpinnyPanda");
+            AudioSource.PlayClipAtPoint(movementSound, transform.position);
+
         }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Tree")
         {
+            if (SpinTime > 0f) GameManager.Instance.SetGameState(GameState.Dead); 
             TagDetect = 1;
         }
         else if (collision.gameObject.tag == "Tree 2")
         {
+            if (SpinTime > 0f) GameManager.Instance.SetGameState(GameState.Dead);
             TagDetect = 2;
         }
         else if (collision.collider.tag == "Snake" || collision.collider.tag == "Fly" || collision.collider.tag == "Grasshopper")
@@ -117,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             case GameState.Play:
                 {
-                    Play(); break;
+                    Play();
+                    break;
                 }
             case GameState.PauseMenu:
                 {
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
-        
+        // AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (animator != null) 
             animator.enabled = false;
         if (rb != null) 
@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Play()
     {
+        // AudioSource.PlayClipAtPoint(gameMusic, transform.position);
         if (animator != null)
             animator.enabled = true;
         if (rb != null) 

@@ -23,12 +23,14 @@ public class DeathMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private CoinsCounter coinsCounter;
     [SerializeField] private Score playerScore;
+    public AudioClip deathSound;
 
 
 
     public void ToggleDeathMenu()
     {
         DeathMenuHolder.SetActive(true);
+        // AudioSource.PlayClipAtPoint(deathSound, transform.position);
         int _score = (int)playerScore.score + (int)coinsCounter.coins * 5;
         score.text = "Score: " + _score.ToString();
 

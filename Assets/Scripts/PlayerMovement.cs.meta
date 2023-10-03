@@ -3,7 +3,15 @@ guid: 7d4cda3e33853da479f0f6ab867e173b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - deathmenu: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - SpriteGameObject: {instanceID: 0}
+  - spriteRenderer: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - movementSound: {fileID: 8300000, guid: 578ecc56d16c80444913b1b0091497b6, type: 3}
+  - gameMusic: {fileID: 8300000, guid: b15d3944a3b77f8458b4bc70b471b81e, type: 3}
+  - deathSound: {fileID: 8300000, guid: 8d8c2caa114593e45940dab7c7ded250, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
