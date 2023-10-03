@@ -4,7 +4,6 @@ public class Grasshopper : MonoBehaviour
 {
     private float Speed = -3f;
     [SerializeField] Animator animator;
-    private float timeRemaining = 20f;
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;

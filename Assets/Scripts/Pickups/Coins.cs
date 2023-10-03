@@ -20,7 +20,6 @@ public class Coins : MonoBehaviour
     }
     private void Update()
     {
-
         if (GameManager.Instance.State != GameState.Play) { animator.enabled = false; }
         else { animator.enabled = true; }
         if (GameManager.Instance.State != GameState.Play) return;
