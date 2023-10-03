@@ -2,7 +2,6 @@ using UnityEngine;
 public class SideWall : MonoBehaviour
 {
     [SerializeField] float Speed = -3f;
-    private float timeRemaining = 20f;
     private bool gameIsPaused;
 
     private void Awake()
@@ -17,13 +16,8 @@ public class SideWall : MonoBehaviour
     void Update()
     {
         if (gameIsPaused) return;
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining <= 0)
-        {
-            Speed *= 1.5f;
-            timeRemaining += 30;
-        }
-        this.transform.position = this.transform.position + new Vector3(0, Speed, 0) * Time.deltaTime;
+        float speed = Speed * GameManager.Instance.GameSpeed;
+        this.transform.position = this.transform.position + new Vector3(0, speed, 0) * Time.deltaTime;
         if (this.transform.position.y < -11)
         {
             this.transform.position += new Vector3(0, 22, 0);

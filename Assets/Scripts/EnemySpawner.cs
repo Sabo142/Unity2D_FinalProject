@@ -30,7 +30,9 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator spawnEnemy()
     {
-        float randomTimeSpawn = Random.Range(2f, 4f);
+        float speed = GameManager.Instance.GameSpeed/10;
+
+        float randomTimeSpawn = Random.Range(2f - speed, 4f - speed);
         yield return new WaitForSeconds(randomTimeSpawn);
         float randomPosition = Random.Range(0f, 2f);
         if (!gameIsPaused)
@@ -38,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
             if (randomPosition == 0) { Instantiate(snake, treeLeft.transform.position, Quaternion.identity); }
             else { Instantiate(snake, treeRight.transform.position, Quaternion.identity); }
         }
-        randomTimeSpawn = Random.Range(1f, 4f);
+        randomTimeSpawn = Random.Range(1f - speed, 4f - speed);
         yield return new WaitForSeconds(randomTimeSpawn);
         randomPosition = Random.Range(-1.46f, 1.46f);
         if (!gameIsPaused)

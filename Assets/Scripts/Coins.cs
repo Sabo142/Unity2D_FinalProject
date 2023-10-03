@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    int fallSpeed = -3;
+    int Speed = -3;
     [SerializeField] CoinsCounter CoinsCounter;
     [SerializeField] Animator animator;
     public float timeRemaining = 20f;
@@ -20,16 +20,12 @@ public class Coins : MonoBehaviour
     }
     private void Update()
     {
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining <= 0)
-        {
-            fallSpeed *= 50;
-            timeRemaining += 20;
-        }
+
         if (GameManager.Instance.State != GameState.Play) { animator.enabled = false; }
         else { animator.enabled = true; }
         if (GameManager.Instance.State != GameState.Play) return;
-        this.transform.position = this.transform.position + new Vector3(0, fallSpeed, -1) * Time.deltaTime;
+        float speed = Speed * GameManager.Instance.GameSpeed;
+        this.transform.position = this.transform.position + new Vector3(0, speed, -1) * Time.deltaTime;
         if (this.transform.position.y < -11)
         {
             Destroy(gameObject);
