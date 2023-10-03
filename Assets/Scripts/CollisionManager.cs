@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
 {
-    public AudioClip collisionSound;
+    public AudioClip collisionSound;-
     private void OnCollisionEnter2D(Collision2D collision) // for enemies
     {
         if (collision.gameObject.tag == "Player")
