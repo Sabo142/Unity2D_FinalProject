@@ -11,7 +11,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject treeLeft;
     [SerializeField] private GameObject treeRight;
     private bool gameIsPaused;
-
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;
@@ -20,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
     {
         GameManager.StateChanged -= OnGameStateChanged;
     }
-
     private void Start()
     {
         grasshopper = Resources.Load<GameObject>("Prefab/Grasshopper");
@@ -34,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
         float randomTimeSpawn = Random.Range(2f - speed, 4f - speed);
         yield return new WaitForSeconds(randomTimeSpawn);
-        float randomPosition = Random.Range(0f, 2f);
+        float randomPosition = Random.Range(0, 2);
         if (!gameIsPaused)
         {
             if (randomPosition == 0) { Instantiate(snake, treeLeft.transform.position, Quaternion.identity); }
@@ -47,9 +45,21 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(fly, new Vector3(randomPosition, 7, 0), Quaternion.identity);
         }
-
-        StartCoroutine(spawnEnemy());
-        
+        randomTimeSpawn = Random.Range(2f - speed, 4f - speed);
+        yield return new WaitForSeconds(randomTimeSpawn);
+        randomPosition = Random.Range(0, 2);
+        if (!gameIsPaused)
+        {
+            if (randomPosition == 0)
+            {
+                Instantiate(grasshopper, treeLeft.transform.position, Quaternion.Euler(180f, 0f, -90f));
+            }
+            else
+            {
+                Instantiate(grasshopper, treeRight.transform.position, Quaternion.Euler(0f, 0f, 90f));
+            }
+        }
+        StartCoroutine(spawnEnemy());   
     }
     public void OnGameStateChanged(GameState gameState)
     {
@@ -75,5 +85,4 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
     }
-
 }

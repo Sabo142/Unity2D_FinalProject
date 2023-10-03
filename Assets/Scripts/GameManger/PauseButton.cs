@@ -35,7 +35,6 @@ public class PauseButton : MonoBehaviour
 
         image.sprite = resumeSprite;
         GameManager.Instance.SetGameState(GameState.PauseMenu);
-        // AudioSource.Destroy(gameMusic);
     }
     private void StopPause()
     {
