@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator spawnEnemy()
     {
-        float randomTimeSpawn = Random.Range(2f, 5f);
+        float randomTimeSpawn = Random.Range(2f, 4f);
         yield return new WaitForSeconds(randomTimeSpawn);
         float randomPosition = Random.Range(0f, 2f);
         if (!gameIsPaused)

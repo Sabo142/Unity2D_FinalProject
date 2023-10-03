@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float SpinTime = 0f;
     public int TagDetect;
-    private float lastTouchTime = 0f;
-    private float MultiTapDelay = 1f;
     private Touch playerTouch;
     public Animator animator;
     public AudioClip movementSound;

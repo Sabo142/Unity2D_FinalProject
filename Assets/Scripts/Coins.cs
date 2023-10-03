@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    [SerializeField] int fallSpeed = -3;
+    int fallSpeed = -3;
     [SerializeField] CoinsCounter CoinsCounter;
     [SerializeField] Animator animator;
+    public float timeRemaining = 20f;
     private void Start()
     {
         CoinsCounter = GameObject.Find("HUD").GetComponent<CoinsCounter>();
@@ -19,7 +20,13 @@ public class Coins : MonoBehaviour
     }
     private void Update()
     {
-        if(GameManager.Instance.State != GameState.Play) { animator.enabled = false;}
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining <= 0)
+        {
+            fallSpeed *= 50;
+            timeRemaining += 20;
+        }
+        if (GameManager.Instance.State != GameState.Play) { animator.enabled = false; }
         else { animator.enabled = true; }
         if (GameManager.Instance.State != GameState.Play) return;
         this.transform.position = this.transform.position + new Vector3(0, fallSpeed, -1) * Time.deltaTime;
