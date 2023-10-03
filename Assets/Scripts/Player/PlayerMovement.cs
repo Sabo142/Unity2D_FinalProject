@@ -1,15 +1,9 @@
-using System.Threading;
-using System.Collections;
 using UnityEngine;
-using Unity.VisualScripting;
 using UnityEngine.Analytics;
-
 public class PlayerMovement : MonoBehaviour
 {
-
     public DeathMenu deathmenu;
-    [SerializeField] private int JUMP_HEIGHT = 1000;
-    [SerializeField] private int FORWARD_FORCE = 10000;
+    [SerializeField] private int FORWARD_FORCE = 300;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject SpriteGameObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -50,27 +44,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (TagDetect == 1)
                 {
-
                     animator.Play("Rest");
                     AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = true;
-                    rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.right * FORWARD_FORCE);
                 }
                 else if (TagDetect == 2)
                 {
-
                     animator.Play("Rest");
                     AudioSource.PlayClipAtPoint(movementSound, transform.position);
                     spriteRenderer.flipX = false;
-                    rb.AddForce(Vector2.up * JUMP_HEIGHT);
                     rb.AddForce(Vector2.left * FORWARD_FORCE);
                 }
             }
             TagDetect = 0;
         }
     }
-   
     private void MultiTap()
     {
         if(SpinTime > 0f) SpinTime -= Time.deltaTime;
@@ -81,9 +70,7 @@ public class PlayerMovement : MonoBehaviour
             SpinTime = 0.3f;
             animator.Play("SpinnyPanda");
             AudioSource.PlayClipAtPoint(movementSound, transform.position);
-
         }
-        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -122,14 +109,10 @@ public class PlayerMovement : MonoBehaviour
                     animator.enabled = false;
                     break;
                 }
-
         }
-        
     }
-
     void Death()
     {
-        // AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (animator != null) 
             animator.enabled = false;
         if (rb != null) 
@@ -146,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Play()
     {
-        // AudioSource.PlayClipAtPoint(gameMusic, transform.position);
         if (animator != null)
             animator.enabled = true;
         if (rb != null) 

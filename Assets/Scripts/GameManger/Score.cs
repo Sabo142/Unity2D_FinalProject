@@ -1,9 +1,7 @@
-using TMPro;
 using UnityEngine;
-
+using TMPro;
 public class Score : MonoBehaviour
 {
-
     public float score = 0f;
     [SerializeField] private TMP_Text scoreText;
     private bool alive = true;
@@ -22,33 +20,20 @@ public class Score : MonoBehaviour
             score += Time.deltaTime;
             scoreText.text = ((int)score).ToString();
         }
-
     }
-
     private void OnGameStateChange(GameState state)
     {
         switch (state)
         {
             case GameState.Dead:
-                {
-                    alive = false;
-
-                }
+                { alive = false; }
                 break;
             case GameState.PauseMenu:
-                {
-                    alive = false;
-
-                }
+                { alive = false; }
                 break;
             case GameState.Play:
-                {
-                    alive = true;
-
-                }
+                { alive = true; }
                 break;
-
-
         }
     }
 }

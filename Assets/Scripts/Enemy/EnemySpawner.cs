@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-
+using System.Collections;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject grasshopper;
@@ -29,7 +26,6 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator spawnEnemy()
     {
         float speed = GameManager.Instance.GameSpeed/10;
-
         float randomTimeSpawn = Random.Range(2f - speed, 4f - speed);
         yield return new WaitForSeconds(randomTimeSpawn);
         float randomPosition = Random.Range(0, 2);
@@ -67,9 +63,7 @@ public class EnemySpawner : MonoBehaviour
         {
             case GameState.Play:
                 {
-                    {
-                        gameIsPaused = false; 
-                    }
+                    { gameIsPaused = false; }
                 }
                 break;
             case GameState.PauseMenu:

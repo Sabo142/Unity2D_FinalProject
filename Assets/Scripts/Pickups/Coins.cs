@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Coins : MonoBehaviour
 {
     int Speed = -3;

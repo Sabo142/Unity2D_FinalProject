@@ -1,11 +1,8 @@
 using UnityEngine;
-
 public class Snake : MonoBehaviour
 {
-    private float Speed = -3f;
+    [SerializeField] private float Speed = -3f;
     [SerializeField] Animator animator;
-
-
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;
@@ -14,7 +11,6 @@ public class Snake : MonoBehaviour
     {
         GameManager.StateChanged -= OnGameStateChanged;
     }
-
     private void Update()
     {
         float speed = Speed * GameManager.Instance.GameSpeed;
@@ -30,27 +26,13 @@ public class Snake : MonoBehaviour
         switch (gameState)
         {
             case GameState.Play:
-                {
-                    {
-                        animator.enabled = true;
-                    }
-
-                }
+                    { animator.enabled = true; }
                 break;
             case GameState.PauseMenu:
-                {
-                    {
-                        animator.enabled = false;
-                    }
-
-                }
+                    { animator.enabled = false; }
                 break;
             case GameState.Dead:
-                {
-                    {
-                        animator.enabled = false;
-                    }
-                }
+                    { animator.enabled = false; }
                 break;
         }
     }

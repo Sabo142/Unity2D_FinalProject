@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-
 public class PauseButton : MonoBehaviour
 {
-
     [SerializeField] private Image image;
     [SerializeField] private Sprite pauseSprite;
     [SerializeField] private Sprite resumeSprite;
     [SerializeField] private bool gameIsPaused = false;
-    public AudioClip gameMusic;
     [SerializeField] private AudioSource AS;
+    public AudioClip gameMusic;
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChange;
@@ -33,7 +31,6 @@ public class PauseButton : MonoBehaviour
     }
     private void StartPause()
     {
-
         image.sprite = resumeSprite;
         GameManager.Instance.SetGameState(GameState.PauseMenu);
         AS.Pause();
@@ -49,14 +46,8 @@ public class PauseButton : MonoBehaviour
         switch (state)
         {
             case GameState.Dead:
-                {
-                    gameObject.SetActive(false);
-
-                }
+                { gameObject.SetActive(false); }
                 break;
-
-
-
         }
     }
 }

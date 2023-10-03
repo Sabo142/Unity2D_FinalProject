@@ -1,23 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using System.Collections.Generic;
 [CreateAssetMenu(menuName = "HighScore")]
 public class HighScore : ScriptableObject
 {
     [SerializeField] private List<PlayerScore> scoreList;
     public string PlayerName = "xxx";
-    
     public List<PlayerScore> ScoreList { get {  return scoreList; } }
     public bool CheckForHighScore(int score)
     {
         if (ScoreList.Count < 14) return true;
-       
         if (score > scoreList[scoreList.Count-1]._score)
         {   
             return true;
         }
-        
         return false;
     }
     public void InsertNewHighScore(int score)
@@ -42,7 +37,6 @@ public class HighScore : ScriptableObject
             scoreList.Insert(scoreList.Count, playerScore);
         }
     }
-
     public void organizeHighScore()
     {
         for(int y = scoreList.Count ^ 2 - 1; y > 0;y--)
@@ -65,11 +59,9 @@ public class PlayerScore
 {
     public string _name;
     public int _score;
-  
     public PlayerScore (string name, int score)
     {
         _name = name;
         _score = score;
     }
-
 }

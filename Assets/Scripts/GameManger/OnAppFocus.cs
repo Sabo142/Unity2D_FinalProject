@@ -1,12 +1,9 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-
+using TMPro;
 public class OnAppFocus : MonoBehaviour
 {
     public bool IsGamePaused = false;
     [SerializeField] private TextMeshProUGUI pauseText;
-    
     private void OnApplicationFocus(bool focus)
     {
         IsGamePaused = !focus;

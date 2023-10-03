@@ -1,8 +1,7 @@
 using UnityEngine;
-
 public class Fly : MonoBehaviour
 {
-    public float Speed = -3f;
+    [SerializeField] public float Speed = -5f;
     [SerializeField] Animator animator;
     private void Awake()
     {
@@ -12,7 +11,6 @@ public class Fly : MonoBehaviour
     {
         GameManager.StateChanged -= OnGameStateChanged;
     }
-
     private void Update()
     {
         if (GameManager.Instance.State != GameState.Play) return;
@@ -28,27 +26,13 @@ public class Fly : MonoBehaviour
         switch (gameState)
         {
             case GameState.Play:
-                {
-                    {
-                        animator.enabled = true;
-                    }
-
-                }
+                    { animator.enabled = true; }
                 break;
             case GameState.PauseMenu:
-                {
-                    {
-                        animator.enabled = false;
-                    }
-
-                }
+                    { animator.enabled = false; }
                 break;
             case GameState.Dead:
-                {
-                    {
-                        animator.enabled = false;
-                    }
-                }
+                    { animator.enabled = false; }
                 break;
         }
     }

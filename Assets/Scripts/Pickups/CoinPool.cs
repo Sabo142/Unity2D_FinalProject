@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 public class CoinPool : MonoBehaviour
 {
     [SerializeField] Coins coinPrefab;
@@ -27,29 +27,20 @@ public class CoinPool : MonoBehaviour
             Instantiate(coinPrefab, new Vector3(randomCoinPosition, 7, 0), Quaternion.identity);
         } 
         StartCoroutine(spawnCoins());
-
-
     }
     public void OnGameStateChanged(GameState gameState)
     {
         switch (gameState)
         {
             case GameState.Play:
-                {
-                    { 
-                        gameIsPaused = false;
-                    }
-                    
-                }break;
+                { gameIsPaused = false; }
+                break;
             case GameState.PauseMenu:
-                {
-                    gameIsPaused = true;
-                }
+                { gameIsPaused = true; }
                 break;
             case GameState.Dead:
-                {
-                    gameIsPaused = true;
-                }break;
+                { gameIsPaused = true; }
+                break;
         }
     }
 }

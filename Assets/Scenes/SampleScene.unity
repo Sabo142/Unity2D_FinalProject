@@ -246,7 +246,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d8c2caa114593e45940dab7c7ded250, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.324
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1212,7 +1212,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b15d3944a3b77f8458b4bc70b471b81e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1539,8 +1539,8 @@ MonoBehaviour:
   pauseSprite: {fileID: -2025121605, guid: e3b2e4b79f396c643bc2d9fd26c5b1ef, type: 3}
   resumeSprite: {fileID: 820550107, guid: e3b2e4b79f396c643bc2d9fd26c5b1ef, type: 3}
   gameIsPaused: 0
-  gameMusic: {fileID: 8300000, guid: b15d3944a3b77f8458b4bc70b471b81e, type: 3}
   AS: {fileID: 509722985}
+  gameMusic: {fileID: 8300000, guid: b15d3944a3b77f8458b4bc70b471b81e, type: 3}
 --- !u!114 &564597141 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7340491820412209251, guid: ede6d237e33efb64abc423b732727d39, type: 3}

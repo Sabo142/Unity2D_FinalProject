@@ -3,7 +3,6 @@ public class SideWall : MonoBehaviour
 {
     [SerializeField] float Speed = -3f;
     private bool gameIsPaused;
-
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;
@@ -12,7 +11,6 @@ public class SideWall : MonoBehaviour
     {
         GameManager.StateChanged -= OnGameStateChanged;
     }
-
     void Update()
     {
         if (gameIsPaused) return;
@@ -28,23 +26,14 @@ public class SideWall : MonoBehaviour
         switch (gameState)
         {
             case GameState.Play:
-                {
                     { gameIsPaused = false; }
-
-                }
                 break;
             case GameState.PauseMenu:
-                {
                     { gameIsPaused = true; }
-
-                }
                 break;
             case GameState.Dead:
-                {
                     { gameIsPaused = true; }
-                }
                 break;
         }
     }
-
 }
