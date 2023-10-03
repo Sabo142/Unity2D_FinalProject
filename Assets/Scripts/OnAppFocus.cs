@@ -8,7 +8,8 @@ public class OnAppFocus : MonoBehaviour
     {
     if (IsGamePaused)
         {
-            GUI.Label(new Rect(100, 100, 50, 30),"GAME PAUSED");
+            //GUI.Label(new Rect(100, 100, 50, 30),"GAME PAUSED");
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 50, 30), "GAME PAUSED");
         }
     }
     private void OnApplicationFocus(bool focus)

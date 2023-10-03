@@ -28,7 +28,7 @@ public class PhoneCamera : MonoBehaviour
         {
             if (!devices[i].isFrontFacing) 
             {
-                backCam = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+                backCam = new WebCamTexture(devices[0].name);
             }
         }
 
@@ -37,10 +37,8 @@ public class PhoneCamera : MonoBehaviour
             Debug.Log("unable to find camera");
             return;
         }
-
-        backCam.Play();
         background.texture = backCam;
-
+        backCam.Play();
         camAvailable = true;
     }
 
