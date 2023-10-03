@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Fly : MonoBehaviour
 {
-    [SerializeField] private int flySpeed;
+    public float flySpeed = -3f;
     [SerializeField] Animator animator;
-
+    private float timeRemaining = 20f;
     private void Awake()
     {
         GameManager.StateChanged += OnGameStateChanged;
@@ -17,6 +17,12 @@ public class Fly : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.State != GameState.Play) return;
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining <= 0)
+        {
+            flySpeed *= 50;
+            timeRemaining += 20;
+        }
         this.transform.position = this.transform.position + new Vector3(0, flySpeed, 0) * Time.deltaTime;
         if (this.transform.position.y < -11)
         {

@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eab9ca8b9dbe84ea296d5ff7b6fb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 8570803932910275421, guid: a67e19868686d3d4ab6aaf4bdcfae519, type: 3}
 --- !u!4 &671664279
 Transform:
   m_ObjectHideFlags: 0
@@ -1798,9 +1798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe97efd818dc7f47b24d1fe18a44e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grasshopper: {fileID: 0}
-  fly: {fileID: 0}
-  snake: {fileID: 0}
+  grasshopper: {fileID: 8595527546905651050, guid: 5f769cc46352aee4db936a988cea75fc, type: 3}
+  fly: {fileID: 321172558003091284, guid: 776a62447c024d943b8d0a59d4ac0c40, type: 3}
+  snake: {fileID: 7415723336975714052, guid: 476a5af26d96aa54d883825a22a5419f, type: 3}
   treeLeft: {fileID: 1145419569}
   treeRight: {fileID: 1839250441}
 --- !u!1 &683501263
