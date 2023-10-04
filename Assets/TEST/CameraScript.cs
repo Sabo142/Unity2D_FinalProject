@@ -62,26 +62,5 @@ public class CameraScript : MonoBehaviour
 
     }
     
-    public void Picture()
-    {
-        StartCoroutine(TakePicture());
-    }
-
-    public IEnumerator TakePicture()
-    {
-        yield return new WaitForEndOfFrame();
-
-        Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
-
-        screenCapture.ReadPixels(regionToRead, 0, 0, false);
-        screenCapture.Apply();
-        Debug.Log("taken picture");
-        ShowPhoto();
-    }
-
-    void ShowPhoto()
-    {
-        Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoDisplayArea.sprite = photoSprite;
-    }
+    
 }
